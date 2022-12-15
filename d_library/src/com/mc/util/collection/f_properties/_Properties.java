@@ -1,5 +1,6 @@
 package com.mc.util.collection.f_properties;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -80,9 +81,23 @@ public class _Properties {
 		
 		Properties readProp = new Properties();
 		
-		for (Object key : readProp.keySet()) {
-			System.out.println(readProp.getProperty((String)key));
+		try (FileInputStream fis = new FileInputStream("prop.xml")) {
+			
+			readProp.loadFromXML(fis);
+			
+			for (Object key : readProp.keySet()) {
+				System.out.println(readProp.getProperty((String)key));
+			}
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
+	
 		
 		
 	}

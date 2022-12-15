@@ -6,7 +6,7 @@ public class Run {
 		
 		_Properties props = new _Properties();
 		//props.studyProperties();
-		props.storeToXMl();
+		props.loadFromXML();
 		
 		
 	}
