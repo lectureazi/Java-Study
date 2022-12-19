@@ -34,7 +34,7 @@ public class QRService {
 			
 			BitMatrix matrix = qr.encode(contents, BarcodeFormat.QR_CODE, 1000, 1000);
 			
-			int argb = (int)Long.parseLong(color, 16);
+			int argb = Integer.parseUnsignedInt(color, 16);
 			MatrixToImageConfig config = new MatrixToImageConfig(argb, MatrixToImageConfig.WHITE);
 			MatrixToImageWriter.writeToStream(matrix, "jpg", fos, config);
 			
