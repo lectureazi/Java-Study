@@ -43,7 +43,6 @@ public class ChatServer {
 				read(socket);
 				
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
