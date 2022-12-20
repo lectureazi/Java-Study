@@ -60,7 +60,6 @@ public class TCPServer {
 					Map<String, String> parameter = getParameter(url);
 					HttpRequest request = new HttpRequest(parameter);
 					HttpResponse response = qrController.qrCode(request,  new HttpResponse(bos));
-					sendResponse(bos, response);
 					
 				}else {
 					// 존재하지 않는 리소스 요청

@@ -59,13 +59,11 @@ public class ChatServer {
 				try (BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
 					while(true) {
 						String message = br.readLine();
-						
-						if(message != null) {
-							broadcast(message);
-						}
+						broadcast(message);
 					}
 				} catch (IOException e) {
 					System.out.println("연결이 종료되었습니다.");
+					removeSocket(socket);
 				}
 			}
 		});
