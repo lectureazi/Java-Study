@@ -67,11 +67,6 @@ public class ChatClient {
 			e.printStackTrace();
 			closeSocket();
 		}
-		
-		
-		
-		
-		
 	}
 
 	private void read() {
@@ -94,15 +89,21 @@ public class ChatClient {
 
 	private void write() {
 		new Thread(() -> {
+			
 			Scanner sc = new Scanner(System.in);
-			
-			
 			
 			try(PrintWriter writer = new PrintWriter(socket.getOutputStream())){
 				
 				while(true) {
+					
+					// dm <to 사용자> /
+					
 					String message = sc.nextLine();
-					writer.println(userId + " : " + message);
+					String header = "type=chat&";
+					
+					if(message.startsWith("dm")) header="type=dm&";
+					
+					writer.println(header + message);
 					writer.flush();
 				}
 				
